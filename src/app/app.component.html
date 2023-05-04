@@ -6,18 +6,18 @@
 
         <ul class="list-group">
           <li
-            class="list-group-item m-3 p-3 bg-dark text-white rounded-4 pointer-hoover"
+            class="list-group-item m-3 p-2 mb-0 pb-1 bg-dark text-white rounded-4 pointer-hoover text-center"
             routerLink="/"
           >
-            Overview
+            <i class="bi bi-house-check-fill"></i> Overview
           </li>
           <li
-            class="list-group-item m-3 p-3 mb-0 bg-dark text-white rounded-4 pointer-hoover"
+            class="list-group-item m-3 p-2 mb-0 pb-1 bg-dark text-white rounded-4 pointer-hoover text-center"
             (click)="isCollapsedAuthor = !isCollapsedAuthor"
             [attr.aria-expanded]="!isCollapsedAuthor"
             aria-current="true"
           >
-            Authors
+            <i class="bi bi-person-circle"></i> Authors
           </li>
           <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsedAuthor">
             <div class="card m-3 mt-0 text-end">
@@ -25,17 +25,22 @@
                 <li class="list-group-item pointer-hoover" routerLink="/author">
                   List
                 </li>
-                <li class="list-group-item pointer-hoover" routerLink="/author/create">Create Author</li>
+                <li
+                  class="list-group-item pointer-hoover"
+                  routerLink="/author/create"
+                >
+                  Create Author
+                </li>
               </ul>
             </div>
           </div>
           <li
-            class="list-group-item m-3 p-3 mb-0 bg-dark text-white rounded-4 pointer-hoover"
+            class="list-group-item m-3 p-2 mb-0 pb-1 bg-dark text-white rounded-4 pointer-hoover text-center"
             (click)="isCollapsedBook = !isCollapsedBook"
             [attr.aria-expanded]="!isCollapsedBook"
             aria-current="true"
           >
-            Books
+            <i class="bi bi-book-half"></i> Books
           </li>
           <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsedBook">
             <div class="card m-3 mt-0 text-end">
@@ -43,17 +48,22 @@
                 <li class="list-group-item pointer-hoover" routerLink="/book">
                   List
                 </li>
-                <li class="list-group-item pointer-hoover" routerLink="/book/create">Create book</li>
+                <li
+                  class="list-group-item pointer-hoover"
+                  routerLink="/book/create"
+                >
+                  Create book
+                </li>
               </ul>
             </div>
           </div>
           <li
-            class="list-group-item m-3 p-3 mb-0 bg-dark text-white rounded-4 pointer-hoover"
+            class="list-group-item m-3 p-2 mb-0 pb-1 bg-dark text-white rounded-4 pointer-hoover text-center"
             (click)="isCollapsedCategory = !isCollapsedCategory"
             [attr.aria-expanded]="!isCollapsedCategory"
             aria-current="true"
           >
-            Categories
+            <i class="bi bi-bookmark-star-fill"></i> Categories
           </li>
           <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsedCategory">
             <div class="card m-3 mt-0 text-end">
@@ -64,7 +74,12 @@
                 >
                   List
                 </li>
-                <li class="list-group-item pointer-hoover" routerLink="/category/create">Create Category</li>
+                <li
+                  class="list-group-item pointer-hoover"
+                  routerLink="/category/create"
+                >
+                  Create Category
+                </li>
               </ul>
             </div>
           </div>
