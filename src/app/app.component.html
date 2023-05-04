@@ -1,4 +1,78 @@
-<div>
-  Algo en comun
+<div style="height: 100vh">
+  <div class="row m-2">
+    <div class="col-3 card shadow-lg m-2" style="height: 90vh">
+      <div class="container mt-3 text-left">
+        <h2>Book Store</h2>
+
+        <ul class="list-group">
+          <li
+            class="list-group-item m-3 p-3 bg-dark text-white rounded-4 pointer-hoover"
+            routerLink="/"
+          >
+            Overview
+          </li>
+          <li
+            class="list-group-item m-3 p-3 mb-0 bg-dark text-white rounded-4 pointer-hoover"
+            (click)="isCollapsedAuthor = !isCollapsedAuthor"
+            [attr.aria-expanded]="!isCollapsedAuthor"
+            aria-current="true"
+          >
+            Authors
+          </li>
+          <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsedAuthor">
+            <div class="card m-3 mt-0 text-end">
+              <ul class="list-group">
+                <li class="list-group-item pointer-hoover" routerLink="/author">
+                  List
+                </li>
+                <li class="list-group-item pointer-hoover" routerLink="/author/create">Create Author</li>
+              </ul>
+            </div>
+          </div>
+          <li
+            class="list-group-item m-3 p-3 mb-0 bg-dark text-white rounded-4 pointer-hoover"
+            (click)="isCollapsedBook = !isCollapsedBook"
+            [attr.aria-expanded]="!isCollapsedBook"
+            aria-current="true"
+          >
+            Books
+          </li>
+          <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsedBook">
+            <div class="card m-3 mt-0 text-end">
+              <ul class="list-group">
+                <li class="list-group-item pointer-hoover" routerLink="/book">
+                  List
+                </li>
+                <li class="list-group-item pointer-hoover" routerLink="/book/create">Create book</li>
+              </ul>
+            </div>
+          </div>
+          <li
+            class="list-group-item m-3 p-3 mb-0 bg-dark text-white rounded-4 pointer-hoover"
+            (click)="isCollapsedCategory = !isCollapsedCategory"
+            [attr.aria-expanded]="!isCollapsedCategory"
+            aria-current="true"
+          >
+            Categories
+          </li>
+          <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsedCategory">
+            <div class="card m-3 mt-0 text-end">
+              <ul class="list-group">
+                <li
+                  class="list-group-item pointer-hoover"
+                  routerLink="/category"
+                >
+                  List
+                </li>
+                <li class="list-group-item pointer-hoover" routerLink="/category/create">Create Category</li>
+              </ul>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class="col card shadow-lg m-2" style="height: 90vh">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
-<router-outlet></router-outlet>

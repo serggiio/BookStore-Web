@@ -9,7 +9,7 @@ import { OverviewComponent } from './overview/overview.component';
 @NgModule({
   declarations: [
     AppComponent,
-    OverviewComponent
+    OverviewComponent,
   ],
   imports: [
     AppRoutingModule,

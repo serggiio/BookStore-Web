@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BookStoreWeb';
+  isCollapsedAuthor = true;
+  isCollapsedBook = true;
+  isCollapsedCategory = true;
 }
