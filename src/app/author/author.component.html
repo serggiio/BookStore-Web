@@ -16,10 +16,21 @@
             | slice : (page - 1) * pageSize : page * pageSize
         "
       >
-        <th>{{ author.name }}</th>
+        <td>{{ author.name }}</td>
         <td>{{ author.country }}</td>
         <td>{{ author.books?.length }}</td>
-        <td>Delete, Update, View</td>
+        <td>
+          <a
+            class="btn btn-outline-danger m-1"
+            placement="top"
+            ngbTooltip="Tooltip on top"
+            (click)="deleteAuthor(author.id)"
+            ><i class="bi bi-trash"></i
+          ></a>
+          <a class="btn btn-outline-info m-1"
+            ><i class="bi bi-pencil-square"></i
+          ></a>
+        </td>
       </tr>
     </tbody>
   </table>

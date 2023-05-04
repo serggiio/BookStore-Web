@@ -5,15 +5,14 @@ import { Author } from '../core/models/Author';
 @Component({
   selector: 'app-author',
   templateUrl: './author.component.html',
-  styleUrls: ['./author.component.css']
+  styleUrls: ['./author.component.css'],
 })
-export class AuthorComponent implements OnInit{
-
+export class AuthorComponent implements OnInit {
   authorList: Author[] = [];
 
   page = 1;
-	pageSize = 10;
-	collectionSize = 0;
+  pageSize = 10;
+  collectionSize = 0;
 
   constructor(private authorService: AuthorService) {}
 
@@ -23,20 +22,33 @@ export class AuthorComponent implements OnInit{
   }
 
   getAuthors() {
-    this.authorService
-      .getAll()
-      .subscribe({
-        next: (data) => {
-          console.log(data);
-          if (data && data.isSuccessful) {
-            this.authorList = data.data || [];
-            this.collectionSize = this.authorList.length;
-          }
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
+    this.authorService.getAll().subscribe({
+      next: (data) => {
+        console.log(data);
+        if (data && data.isSuccessful) {
+          this.authorList = data.data || [];
+          this.collectionSize = this.authorList.length;
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
+  deleteAuthor(id: any) {
+    if (confirm('Delete this author?')) {
+      this.authorService
+      .delete({id})
+      .subscribe({
+        next: () => {
+          console.log('Deleted');
+          this.authorList = this.authorList.filter((author) => author.id != id);
+          },
+          error: (err) => {
+              console.log(err);
+          },
+        });
+    }
+  }
 }
