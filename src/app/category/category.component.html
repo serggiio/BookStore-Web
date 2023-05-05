@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <h2>Categories registered</h2>
+  <app-category-create [categoryList]="categoryList"></app-category-create>
   <table class="table mt-4 table-bordered table-hover">
     <thead>
       <tr>
-        <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Actions</th>
       </tr>
@@ -15,7 +15,6 @@
             | slice : (page - 1) * pageSize : page * pageSize
         "
       >
-        <td>{{ category.id }}</td>
         <td>{{ category.name }}</td>
         <td class="text-center">
           <a
