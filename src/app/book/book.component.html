@@ -26,9 +26,7 @@
             (click)="deleteBook(book.id)"
             ><i class="bi bi-trash"></i
           ></a>
-          <a class="btn btn-outline-info m-1"
-            ><i class="bi bi-pencil-square"></i
-          ></a>
+          <app-book-edit [bookModel]="book"></app-book-edit>
         </td>
       </tr>
     </tbody>

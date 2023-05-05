@@ -1,0 +1,158 @@
+<a class="btn btn-outline-info m-1" (click)="open(content)"
+  ><i class="bi bi-pencil-square"></i
+></a>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit book</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form #editForm="ngForm">
+      <div class="row pb-4">
+        <div class="col-sm">
+          <label for="bookTitle" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="bookTitle"
+            name="bookTitle"
+            aria-describedby="bookTitleFeedback"
+            [(ngModel)]="bookModel.title"
+            #title="ngModel"
+            [minlength]="3"
+            [ngClass]="title.touched && !title.valid ? 'is-invalid' : ''"
+            required
+          />
+          <div
+            id="bookTitleFeedback"
+            class="invalid-feedback"
+            *ngIf="title.touched && !title.valid"
+          >
+            Invalid book title
+          </div>
+        </div>
+      </div>
+
+      <div class="row pb-4">
+        <div class="col-sm">
+          <label for="bookTitle" class="form-label">Number of pagess</label>
+          <input
+            type="number"
+            class="form-control"
+            id="bookPages"
+            name="bookPages"
+            aria-describedby="bookPagesFeedback"
+            [(ngModel)]="bookModel.pages"
+            #pages="ngModel"
+            [min]="1"
+            [ngClass]="pages.touched && !pages.valid ? 'is-invalid' : ''"
+            required
+          />
+          <div
+            id="bookPagesFeedback"
+            class="invalid-feedback"
+            *ngIf="pages.touched && !pages.valid"
+          >
+            Invalid number of pages
+          </div>
+        </div>
+      </div>
+
+      <div class="row pb-4">
+        <div class="col-sm">
+          <label for="bookDescription" class="form-label">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="bookDescription"
+            name="bookDescription"
+            aria-describedby="bookDescriptionFeedback"
+            [(ngModel)]="bookModel.description"
+            #description="ngModel"
+            [minlength]="3"
+            [ngClass]="
+              description.touched && !description.valid ? 'is-invalid' : ''
+            "
+            required
+          />
+          <div
+            id="bookDescriptionFeedback"
+            class="invalid-feedback"
+            *ngIf="description.touched && !description.valid"
+          >
+            Invalid book description
+          </div>
+        </div>
+      </div>
+
+      <div class="row pb-4">
+        <div class="col-sm">
+          <label for="bookPublisher" class="form-label">Publisher</label>
+          <input
+            type="text"
+            class="form-control"
+            id="bookPublisher"
+            name="bookPublisher"
+            aria-describedby="bookPublisherFeedback"
+            [(ngModel)]="bookModel.publisher"
+            #publisher="ngModel"
+            [minlength]="3"
+            [ngClass]="
+              publisher.touched && !publisher.valid ? 'is-invalid' : ''
+            "
+            required
+          />
+          <div
+            id="bookPublisherFeedback"
+            class="invalid-feedback"
+            *ngIf="publisher.touched && !publisher.valid"
+          >
+            Invalid book publisher
+          </div>
+        </div>
+      </div>
+
+      <div class="row pb-4">
+        <div class="col-sm">
+          <label for="bookDate" class="form-label">ReleaseDate</label>
+          <input
+            type="date"
+            class="form-control"
+            id="bookDate"
+            name="bookDate"
+            aria-describedby="bookDateFeedback"
+            [(ngModel)]="bookModel.releaseDate"
+            #releaseDate="ngModel"
+            [ngClass]="
+              releaseDate.touched && !releaseDate.valid ? 'is-invalid' : ''
+            "
+            required
+          />
+          <div
+            id="bookDateFeedback"
+            class="invalid-feedback"
+            *ngIf="releaseDate.touched && !releaseDate.valid"
+          >
+            Invalid book release date
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="editBook()"
+      [disabled]="!editForm.valid"
+    >
+      Update
+    </button>
+  </div>
+</ng-template>

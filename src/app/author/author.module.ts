@@ -6,12 +6,14 @@ import { AuthorComponent } from './author.component';
 import { AuthorCreateComponent } from './author-create/author-create.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { AuthorEditComponent } from './author-edit/author-edit.component';
 
 
 @NgModule({
   declarations: [
     AuthorComponent,
-    AuthorCreateComponent
+    AuthorCreateComponent,
+    AuthorEditComponent
   ],
   imports: [
     CommonModule,
