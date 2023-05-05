@@ -5,9 +5,10 @@ import { BookRoutingModule } from './book-routing.module';
 import { BookComponent } from './book.component';
 import { BookCreateComponent } from './book-create/book-create.component';
 import { FormsModule } from '@angular/forms';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [BookComponent, BookCreateComponent],
-  imports: [CommonModule, BookRoutingModule, FormsModule],
+  imports: [CommonModule, BookRoutingModule, FormsModule, NgbPaginationModule],
 })
 export class BookModule {}

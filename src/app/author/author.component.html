@@ -1,8 +1,8 @@
 <div class="container mt-5">
   <h2>Authors registered</h2>
-  <table class="table mt-4 table-striped table-hover">
+  <table class="table mt-4 table-bordered table-hover">
     <thead>
-      <tr>
+      <tr class="text-center">
         <th scope="col">Name</th>
         <th scope="col">Country</th>
         <th scope="col">Books #</th>
@@ -19,7 +19,7 @@
         <td>{{ author.name }}</td>
         <td>{{ author.country }}</td>
         <td>{{ author.books?.length }}</td>
-        <td>
+        <td class="text-center">
           <a
             class="btn btn-outline-danger m-1"
             placement="top"

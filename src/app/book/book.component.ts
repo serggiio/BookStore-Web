@@ -10,6 +10,10 @@ import { Book } from '../core/models/Book';
 export class BookComponent implements OnInit {
   bookList: Book[] = [];
 
+  page = 1;
+  pageSize = 7;
+  collectionSize = 0;
+
   constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
