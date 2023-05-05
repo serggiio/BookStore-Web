@@ -6,9 +6,10 @@ import { CategoryComponent } from './category.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { FormsModule } from '@angular/forms';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { CategoryEditComponent } from './category-edit/category-edit.component';
 
 @NgModule({
-  declarations: [CategoryComponent, CategoryCreateComponent],
+  declarations: [CategoryComponent, CategoryCreateComponent, CategoryEditComponent],
   imports: [
     CommonModule,
     CategoryRoutingModule,
