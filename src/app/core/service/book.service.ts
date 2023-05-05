@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Book } from '../models/Book';
 import { CommonService } from './CommonService';
-import { Author } from '../models/Author';
 import { HttpClient } from '@angular/common/http';
-import { ApiResult } from '../models/ApiResult';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthorService extends CommonService<Author> {
+export class BookService extends CommonService<Book> {
   constructor(http: HttpClient) {
-    super(http, '/Author');
+    super(http, '/Book');
   }
 }

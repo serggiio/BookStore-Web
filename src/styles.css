@@ -3,3 +3,7 @@
 .pointer-hoover {
     cursor: pointer;
 }
+
+.book-card {
+    background: linear-gradient(45deg,#0F2027,#2C5364);
+}
