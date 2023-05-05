@@ -44,6 +44,14 @@ export class CommonService<T> {
     );
   }
 
+  patch(params: { id: number; entity: any; uri?: string }): Observable<T> {
+    params.uri = params.uri ? params.uri : this.uri;
+    return this.http.patch<T>(
+      `${environment.URL}${params.uri}/${params.id}`,
+      params.entity
+    );
+  }
+
   get(params: { id: number; uri?: string }): Observable<T> {
     params.uri = params.uri ? params.uri : this.uri;
     return this.http.get<T>(`${environment.URL}${params.uri}/${params.id}`);

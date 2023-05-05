@@ -1,1 +1,78 @@
-<p>author-edit works!</p>
+<a class="btn btn-outline-info m-1" (click)="open(content)"
+  ><i class="bi bi-pencil-square"></i
+></a>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit Author</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form #editForm="ngForm">
+      <div class="row pb-4">
+        <div class="col-sm">
+          <label for="authorName" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="authorName"
+            name="authorName"
+            aria-describedby="authorNameFeedback"
+            [(ngModel)]="authorModel.name"
+            #name="ngModel"
+            [minlength]="3"
+            [ngClass]="name.touched && !name.valid ? 'is-invalid' : ''"
+            required
+          />
+          <div
+            id="authorNameFeedback"
+            class="invalid-feedback"
+            *ngIf="name.touched && !name.valid"
+          >
+            Invalid name
+          </div>
+        </div>
+      </div>
+
+      <div class="row pb-4">
+        <div class="col-sm">
+          <label for="authorCountry" class="form-label">Country</label>
+          <input
+            type="text"
+            class="form-control"
+            id="authorCountry"
+            name="authorCountry"
+            aria-describedby="authorCountryFeedback"
+            [(ngModel)]="authorModel.country"
+            #country="ngModel"
+            [minlength]="3"
+            [ngClass]="country.touched && !country.valid ? 'is-invalid' : ''"
+            required
+          />
+          <div
+            id="authorCountryFeedback"
+            class="invalid-feedback"
+            *ngIf="country.touched && !country.valid"
+          >
+            Invalid country
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="editAuthor()"
+      [disabled]="!editForm.valid"
+    >
+      Update
+    </button>
+  </div>
+</ng-template>
