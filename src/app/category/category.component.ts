@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../core/models/Category';
 import { CategoryService } from '../core/service/category.service';
+import { alertType } from '../core/constants/alert-type';
+import { AlertService } from '../core/service/alert.service';
 
 @Component({
   selector: 'app-category',
@@ -14,7 +16,10 @@ export class CategoryComponent implements OnInit {
   pageSize = 10;
   collectionSize = 0;
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(
+    private categoryService: CategoryService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit(): void {
     this.getCategories();
@@ -44,9 +49,18 @@ export class CategoryComponent implements OnInit {
           this.categoryList = this.categoryList.filter(
             (category) => category.id != id
           );
+          this.alertService.add({
+            type: alertType.success,
+            message: `The category has been deleted.`,
+          });
         },
         error: (err) => {
           console.log(err);
+          this.alertService.add({
+            type: alertType.danger,
+            message: `
+            There was an error deleting this item. Please try again.`,
+          });
         },
       });
     }

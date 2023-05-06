@@ -80,7 +80,14 @@
         </ul>
       </div>
     </div>
-    <div class="col card shadow-lg m-2" style="height: auto; min-height: 90vh; padding: 0;">
+    <div class="col card shadow-lg m-2">
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        class="d-flex justify-content-center align-items-center w-100"
+      >
+        <app-alert></app-alert>
+      </div>
       <router-outlet></router-outlet>
     </div>
   </div>

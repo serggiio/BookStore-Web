@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { alertType } from 'src/app/core/constants/alert-type';
 import { Author } from 'src/app/core/models/Author';
+import { AlertService } from 'src/app/core/service/alert.service';
 import { AuthorService } from 'src/app/core/service/author.service';
 
 @Component({
@@ -16,11 +18,12 @@ export class AuthorEditComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private authorService: AuthorService
+    private authorService: AuthorService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
-    this.oldAuthorModel = this.authorModel;
+    this.oldAuthorModel = { ...this.authorModel };
   }
 
   open(content: any) {
@@ -51,10 +54,19 @@ export class AuthorEditComponent implements OnInit {
     this.authorService
       .patch({ id: this.authorModel.id || 0, entity: patchModel })
       .subscribe({
-        next: () => {},
+        next: () => {
+          this.alertService.add({
+            type: alertType.success,
+            message: `The author has been edited.`,
+          });
+        },
         error: (err) => {
           console.log(err);
           this.authorModel = this.oldAuthorModel;
+          this.alertService.add({
+            type: alertType.danger,
+            message: `There was an error updating this item. Please try again.`,
+          });
         },
       });
   }

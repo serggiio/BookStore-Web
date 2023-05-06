@@ -7,12 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { OverviewComponent } from './overview/overview.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    OverviewComponent,
-  ],
+  declarations: [AppComponent, AlertComponent, OverviewComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -21,6 +19,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

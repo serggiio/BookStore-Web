@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { alertType } from 'src/app/core/constants/alert-type';
 import { Book } from 'src/app/core/models/Book';
+import { AlertService } from 'src/app/core/service/alert.service';
 import { BookService } from 'src/app/core/service/book.service';
 
 @Component({
@@ -16,7 +18,8 @@ export class BookEditComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private bookService: BookService
+    private bookService: BookService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -39,10 +42,20 @@ export class BookEditComponent implements OnInit {
     this.bookService
       .update({ id: this.bookModel.id || 0, entity: this.bookModel })
       .subscribe({
-        next: () => {},
+        next: () => {
+          this.alertService.add({
+            type: alertType.success,
+            message: `The book has been updated.`,
+          });
+        },
         error: (err) => {
           console.log(err);
           this.bookModel = this.oldBookModel;
+          this.alertService.add({
+            type: alertType.danger,
+            message: `
+            There was an error updating this item. Please try again.`,
+          });
         },
       });
   }

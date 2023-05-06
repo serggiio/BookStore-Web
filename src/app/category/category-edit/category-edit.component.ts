@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { alertType } from 'src/app/core/constants/alert-type';
 import { Category } from 'src/app/core/models/Category';
+import { AlertService } from 'src/app/core/service/alert.service';
 import { CategoryService } from 'src/app/core/service/category.service';
 
 @Component({
@@ -17,7 +19,8 @@ export class CategoryEditComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private alertService: AlertService
   ) {}
   ngOnInit(): void {
     this.oldCategoryModel = this.categoryModel;
@@ -40,19 +43,18 @@ export class CategoryEditComponent implements OnInit {
       .update({ id: this.categoryModel.id || 0, entity: this.categoryModel })
       .subscribe({
         next: () => {
-          this.categoryList?.forEach((category) => {
-            if (category.id == this.categoryModel.id) {
-              category = this.categoryModel;
-            }
+          this.alertService.add({
+            type: alertType.success,
+            message: `The category has been edited.`,
           });
         },
         error: (err) => {
           console.log(err);
           this.categoryModel = this.oldCategoryModel;
-          this.categoryList?.forEach((category) => {
-            if (category.id == this.categoryModel.id) {
-              category = this.categoryModel;
-            }
+          this.alertService.add({
+            type: alertType.danger,
+            message: `
+            There was an error editing this item. Please try again.`,
           });
         },
       });
