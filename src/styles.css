@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 .pointer-hoover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .book-card {
-    background: linear-gradient(45deg,#0F2027,#2C5364);
+  background: linear-gradient(45deg, #0f2027, #2c5364);
 }

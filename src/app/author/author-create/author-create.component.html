@@ -1,66 +1,66 @@
-<div class="card px-4 py-4 mt-5">
-    <div class="card-body">
-      <h4 class="card-title pb-4 text-center">Create new author</h4>
-      <form #createForm="ngForm" (ngSubmit)="createAuuthor()" class="form-card">
-        <div class="row pb-4">
-          <div class="col-sm">
-            <label for="authorName" class="form-label">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="authorName"
-              name="authorName"
-              aria-describedby="authorNameFeedback"
-              [(ngModel)]="createAuthorModel.name"
-              #name="ngModel"
-              [minlength]="3"
-              [ngClass]="name.touched && !name.valid ? 'is-invalid' : ''"
-              required
-            />
-            <div
-              id="authorNameFeedback"
-              class="invalid-feedback"
-              *ngIf="name.touched && !name.valid"
-            >
-              Invalid name
-            </div>
-          </div>
-        </div>
-
-        <div class="row pb-4">
-            <div class="col-sm">
-              <label for="authorCountry" class="form-label">Country</label>
-              <input
-                type="text"
-                class="form-control"
-                id="authorCountry"
-                name="authorCountry"
-                aria-describedby="authorCountryFeedback"
-                [(ngModel)]="createAuthorModel.country"
-                #country="ngModel"
-                [minlength]="3"
-                [ngClass]="country.touched && !country.valid ? 'is-invalid' : ''"
-                required
-              />
-              <div
-                id="authorCountryFeedback"
-                class="invalid-feedback"
-                *ngIf="country.touched && !country.valid"
-              >
-                Invalid country
-              </div>
-            </div>
-          </div>
-    
-        <div class="d-flex justify-content-between">
-          <button
-            type="submit"
-            class="btn btn-dark"
-            [disabled]="!createAuthorForm?.valid"
+<div class="card px-4 py-4 mt-5 mx-4">
+  <div class="card-body">
+    <h4 class="card-title pb-4 text-center">Create new author</h4>
+    <form #createForm="ngForm" (ngSubmit)="createAuuthor()" class="form-card">
+      <div class="row pb-4">
+        <div class="col-sm">
+          <label for="authorName" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="authorName"
+            name="authorName"
+            aria-describedby="authorNameFeedback"
+            [(ngModel)]="createAuthorModel.name"
+            #name="ngModel"
+            [minlength]="3"
+            [ngClass]="name.touched && !name.valid ? 'is-invalid' : ''"
+            required
+          />
+          <div
+            id="authorNameFeedback"
+            class="invalid-feedback"
+            *ngIf="name.touched && !name.valid"
           >
-            Save
-          </button>
+            Invalid name
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+
+      <div class="row pb-4">
+        <div class="col-sm">
+          <label for="authorCountry" class="form-label">Country</label>
+          <input
+            type="text"
+            class="form-control"
+            id="authorCountry"
+            name="authorCountry"
+            aria-describedby="authorCountryFeedback"
+            [(ngModel)]="createAuthorModel.country"
+            #country="ngModel"
+            [minlength]="3"
+            [ngClass]="country.touched && !country.valid ? 'is-invalid' : ''"
+            required
+          />
+          <div
+            id="authorCountryFeedback"
+            class="invalid-feedback"
+            *ngIf="country.touched && !country.valid"
+          >
+            Invalid country
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button
+          type="submit"
+          class="btn btn-dark"
+          [disabled]="!createAuthorForm?.valid"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
