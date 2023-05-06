@@ -52,8 +52,8 @@ export class CommonService<T> {
     );
   }
 
-  get(params: { id: number; uri?: string }): Observable<T> {
+  get(params: { id: number; uri?: string }): Observable<ApiResult<T>> {
     params.uri = params.uri ? params.uri : this.uri;
-    return this.http.get<T>(`${environment.URL}${params.uri}/${params.id}`);
+    return this.http.get<ApiResult<T>>(`${environment.URL}${params.uri}/${params.id}`);
   }
 }

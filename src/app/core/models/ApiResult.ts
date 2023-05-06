@@ -1,5 +1,5 @@
 export interface ApiResult<T> {
-    data?: T[],
+    data?: any,
     isSuccessful?: boolean,
     message?: string,
 }

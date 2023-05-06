@@ -15,7 +15,9 @@
           let book of bookList | slice : (page - 1) * pageSize : page * pageSize
         "
       >
-        <td>{{ book.title }}</td>
+        <td>
+          <a [routerLink]="[book.id]">{{ book.title }}</a>
+        </td>
         <td class="overflow-hidden">{{ book.publisher }}</td>
         <td>{{ book.releaseDate }}</td>
         <td class="text-center">

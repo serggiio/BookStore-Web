@@ -7,9 +7,15 @@ import { BookCreateComponent } from './book-create/book-create.component';
 import { FormsModule } from '@angular/forms';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookEditComponent } from './book-edit/book-edit.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
-  declarations: [BookComponent, BookCreateComponent, BookEditComponent],
+  declarations: [
+    BookComponent,
+    BookCreateComponent,
+    BookEditComponent,
+    BookDetailComponent,
+  ],
   imports: [CommonModule, BookRoutingModule, FormsModule, NgbPaginationModule],
 })
 export class BookModule {}
